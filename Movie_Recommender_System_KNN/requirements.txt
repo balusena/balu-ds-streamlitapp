@@ -1,6 +1,0 @@
-streamlit 
-image
-sklearn
-beautifulsoup4
-requests
-urllib
