@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 import requests,io
 import PIL.Image
 from urllib.request import urlopen
+import attrs
 
 with open('Movie_Recommender_System_KNN/Data/movie_data.json', 'r+', encoding='utf-8') as f:
     data = json.load(f)
