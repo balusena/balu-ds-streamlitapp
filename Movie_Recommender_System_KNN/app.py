@@ -14,12 +14,11 @@ with open('Movie_Recommender_System_KNN/Data/movie_titles.json', 'r+', encoding=
 
 def movie_poster_fetcher(imdb_link):
     ## Display Movie Poster
+    attribute = attrs
     url_data = requests.get(imdb_link).text
     s_data = BeautifulSoup(url_data, 'html.parser')
     imdb_dp = s_data.find("Movie_Recommender_System_KNN/meta", property="og:image")
-    if imdb_dp is not None:
-        movie_poster_link = imdb_dp.attrs['content']
-        return movie_poster_link
+    movie_poster_link = imdb_dp.attrs['content']
     u = urlopen(movie_poster_link)
     raw_data = u.read()
     image = PIL.Image.open(io.BytesIO(raw_data))
@@ -27,12 +26,11 @@ def movie_poster_fetcher(imdb_link):
     st.image(image, use_column_width=False)
 
 def get_movie_info(imdb_link):
+    attribute = attrs
     url_data = requests.get(imdb_link).text
     s_data = BeautifulSoup(url_data, 'html.parser')
     imdb_content = s_data.find("Movie_Recommender_System_KNN/meta", property="og:description")
-    if imdb_content is not None:
-        movie_descr = imdb_content.attrs['content']
-        return movie_descr
+    movie_descr = imdb_content.attrs['content']
     movie_descr = str(movie_descr).split('.')
     movie_director = movie_descr[0]
     movie_cast = str(movie_descr[1]).replace('With', 'Cast: ').strip()
