@@ -12,23 +12,23 @@ with open('Movie_Recommender_System_KNN/Data/movie_data.json', 'r+', encoding='u
 with open('Movie_Recommender_System_KNN/Data/movie_titles.json', 'r+', encoding='utf-8') as f:
     movie_titles = json.load(f)
 
-def movie_poster_fetcher(imdb_link,attrs):
+def movie_poster_fetcher(imdb_link):
     ## Display Movie Poster
     url_data = requests.get(imdb_link).text
     s_data = BeautifulSoup(url_data, 'html.parser')
     imdb_dp = s_data.find("Movie_Recommender_System_KNN/meta", property="og:image")
-    movie_poster_link = imdb_dp.attrs['content']
+    movie_poster_link = dict(imdb_dp.attrs['content'])
     u = urlopen(movie_poster_link)
     raw_data = u.read()
     image = PIL.Image.open(io.BytesIO(raw_data))
     image = image.resize((158, 301), )
     st.image(image, use_column_width=False)
 
-def get_movie_info(imdb_link,attrs):
+def get_movie_info(imdb_link):
     url_data = requests.get(imdb_link).text
     s_data = BeautifulSoup(url_data, 'html.parser')
     imdb_content = s_data.find("Movie_Recommender_System_KNN/meta", property="og:description")
-    movie_descr = imdb_content.attrs['content']
+    movie_descr = dict(imdb_content.attrs['content'])
     movie_descr = str(movie_descr).split('.')
     movie_director = movie_descr[0]
     movie_cast = str(movie_descr[1]).replace('With', 'Cast: ').strip()
