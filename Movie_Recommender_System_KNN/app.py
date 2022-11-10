@@ -19,11 +19,6 @@ def movie_poster_fetcher(imdb_link):
     s_data = BeautifulSoup(url_data, 'html.parser')
     imdb_dp = s_data.find("Movie_Recommender_System_KNN/meta", property="og:image")
     movie_poster_link = imdb_dp.attrs['content']
-    for h in s_data.findAll('h2'):
-        imdb_dp = h.find('imdd_dp')
-    if 'href' in imdb_dp.attrs:
-        l = imdb_dp.get('href')
-    return l
     u = urlopen(movie_poster_link)
     raw_data = u.read()
     image = PIL.Image.open(io.BytesIO(raw_data))
