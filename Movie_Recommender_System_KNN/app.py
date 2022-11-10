@@ -19,7 +19,7 @@ def movie_poster_fetcher(imdb_link):
     s_data = BeautifulSoup(url_data, 'html.parser')
     imdb_dp = s_data.find("Movie_Recommender_System_KNN/meta", property="og:image")
     movie_poster_link = []
-    movie_poster_link.append(imdb_dp.attrs['content'])
+    movie_poster_link = movie_poster_link.append(imdb_dp.attrs['content'])
     u = urlopen(movie_poster_link)
     raw_data = u.read()
     image = PIL.Image.open(io.BytesIO(raw_data))
@@ -31,7 +31,7 @@ def get_movie_info(imdb_link):
     s_data = BeautifulSoup(url_data, 'html.parser')
     imdb_content = s_data.find("Movie_Recommender_System_KNN/meta", property="og:description")
     movie_descr = []
-    movie_descr.append(imdb_content.attrs['content'])
+    movie_descr = movie_descr.append(imdb_content.attrs['content'])
     movie_descr = str(movie_descr).split('.')
     movie_director = movie_descr[0]
     movie_cast = str(movie_descr[1]).replace('With', 'Cast: ').strip()
