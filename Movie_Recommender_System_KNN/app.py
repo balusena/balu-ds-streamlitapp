@@ -23,7 +23,7 @@ def movie_poster_fetcher(imdb_link):
         imdb_dp = h.find('imdd_dp')
     if 'href' in imdb_dp.attrs:
         l = imdb_dp.get('href')
-    print l
+    return l
     u = urlopen(movie_poster_link)
     raw_data = u.read()
     image = PIL.Image.open(io.BytesIO(raw_data))
