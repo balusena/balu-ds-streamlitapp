@@ -1,4 +1,4 @@
-## Begaluru House Price Forecasting
+## Bengaluru House Price Forecasting
 
 ## 1.Source
 -  We will first build a model using sklearn and linear regression using banglore home prices dataset from kaggle.com.
