@@ -19,7 +19,7 @@ def predict_price(location,total_sqft,bath,bhk):
 def main():
     home = pd.read_csv("Banglore_House_Prediction_Model/bengaluru_house_prices.csv")
     loc = home["location"].unique()
-    st.title("Bengaluru House Price Prediction-App")
+    st.title("Bengaluru House Price Prediction")
     html_temp =  """
     <h2 style = "color:black;text-align:left;"> House Price Prediction </h2>
     """
