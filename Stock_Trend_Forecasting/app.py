@@ -1,7 +1,7 @@
 # pip install streamlit prophet yfinance plotly
 
-import os
-os.environ['TZ'] = 'UTC'
+# import os
+# os.environ['TZ'] = 'UTC'
 
 import streamlit as st
 from datetime import date
