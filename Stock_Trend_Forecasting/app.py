@@ -9,7 +9,7 @@ from prophet.plot import plot_plotly
 from plotly import graph_objs as go
 
 
-START = "2018-01-01"
+START = "2020-01-01"
 TODAY = date.today().strftime("%Y-%m-%d")
 
 st.title('Stock Trend Forecasting')
