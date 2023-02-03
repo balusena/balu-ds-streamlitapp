@@ -58,8 +58,13 @@
 -- Deploy your changes
 -  Make some changes to the code you just cloned and deploy them to Heroku using Git.
 
+-- Add the changes
 -- $ git add .
+
+-- Commit the changes
 -- $ git commit -am "bengaluru-house-price-forecast_commit"
+
+-- Push the chnages
 -- $ git push heroku master
 
 
