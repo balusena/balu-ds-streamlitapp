@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import pickle
 
-pickle_in = open("Banglore_House_Prediction_Model/bengaluru_home_prices_model.pickle","rb")
+pickle_in = open("Banglore_House_Prediction/bengaluru_home_prices_model.pickle","rb")
 classifier = pickle.load(pickle_in)
 
 def Welcome():
@@ -17,7 +17,7 @@ def predict_price(location,total_sqft,bath,bhk):
     return np.round(classifier.predict([x])[0],3)
 
 def main():
-    home = pd.read_csv("Banglore_House_Prediction_Model/bengaluru_house_prices.csv")
+    home = pd.read_csv("Banglore_House_Prediction/bengaluru_house_prices.csv")
     loc = home["location"].unique()
     st.title("Bengaluru House Price Prediction")
     html_temp =  """
